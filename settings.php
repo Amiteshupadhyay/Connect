@@ -144,10 +144,10 @@
 										<div class="basic">
 										<div class="col-xs-6 col-sm-8 col-lg-10">
                                           
-                                                <a href="user.php"data-toggled="tooltip" title="edit"><label>Basic Account Setting</label></a>
+                                                <a href="#" data-toggled="tooltip" title="edit"><label>Basic Account Setting</label></a>
 										</div>
 											<div class="col-xs-6 col-sm-4 col-lg-2">
-											 <a href="user.php" data-toggled="tooltip" title="edit"><i class="ti-pencil"></i></a>
+											 <a href="#" data-toggled="tooltip" title="edit"><i class="ti-pencil"></i></a>
 											</div>
 											</div>
 											

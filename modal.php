@@ -312,7 +312,7 @@
 					</div>
 					<table class="table">
 						<tr>
-							<td><img src="./assets/img/harsh.jpg" class="img-circle" alt="Harsh" width="50" height="50"> &nbsp Harsh &nbsp <btn class="btn btn-success">ASK</btn></td>
+							<td><img src="./assets/img/harsh07.jpg" class="img-circle" alt="Harsh" width="50" height="50"> &nbsp Harsh &nbsp <btn class="btn btn-success">ASK</btn></td>
 							<td><img src="./assets/img/sourav.jpg" class="img-circle" alt="Sourav" width="50" height="50"> &nbsp Sourav &nbsp <btn class="btn btn-success">ASK</btn></td>
 							<td><img src="./assets/img/vivek15.jpg" class="img-circle" alt="Vivek" width="50" height="50"> &nbsp Vivek &nbsp <btn class="btn btn-success">ASK</btn></td>
 							<td><img src="./assets/img/amitesh.jpg" class="img-circle" alt="Amitesh" width="50" height="50"> &nbsp Amitesh &nbsp <btn class="btn btn-success">ASK</btn></td>
