@@ -341,7 +341,7 @@
 								<span class="input-group-addon">
 									<i class="material-icons">date_range</i>
 								</span>
-								<input name="DOB"  id="dob" class="datepicker form-control" type="text" value="01/01/1990"/>
+								<input name="DOB"  id="dob" class="form-control" type="date" value="1990-01-01"/>
 								<span id="msg2" style="color:red;"></span>
 								
 							</div>
@@ -436,17 +436,17 @@ $(document).scroll(function(){
 					email=$("#emailid").val();
 					var specialChars = "<>@!#$%^&*()_+[]{}?:;|'\"\\,./~`-="
 					
-			var check = function(string)
-			{
-			for(i = 0; i < specialChars.length;i++)
-			{
-			if(string.indexOf(specialChars[i]) > -1)
-			{
-            return true
-			}
-			}
-			return false;
-			}
+					var check = function(string)
+					{
+					for(i = 0; i < specialChars.length;i++)
+					{
+					if(string.indexOf(specialChars[i]) > -1)
+					{
+					return true
+					}
+					}
+					return false;
+					}
 					var alliswell="true";
 					
 					if($("#fullname").val()==="")

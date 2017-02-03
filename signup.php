@@ -86,6 +86,10 @@
 		$conn->query($sql);
 		$conn->close();
 		$_SESSION["username"]=$user;
+		$_SESSION["fullname"]=$fullname;
+		$_SESSION["emailid"]=$email;
+		$_SESSION["birthdate"]=$DOB;
+		$_SESSION["points"]=250;
 		$str="Users\\".$user;
 		mkdir($str);
 
