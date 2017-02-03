@@ -1,0 +1,21 @@
+<?php
+session_start();
+	if($_SERVER["REQUEST_METHOD"]=="POST")
+	{   
+	$topic=$_POST["debatetopicbox"];
+	$author=$_SESSION["username"];
+	$tags=$_POST["tags"];
+	$texts=$_POST["text"];
+	$filename="./Blog/".$topic.".txt";
+    $myfile=fopen($filename,"a") or die("unable to open file");
+	fwrite($myfile,$topic);
+	fwrite($myfile,"#$%^&");
+	fwrite($myfile,$author);
+	fwrite($myfile,"#$%^&");
+	fwrite($myfile,$tags);
+	fwrite($myfile,"#$%^&");
+	fwrite($myfile,$texts);
+	fwrite($myfile,"\r\n");
+	fclose($myfile);
+	}	
+?>
