@@ -39,7 +39,7 @@
 		<div class="col-md-8 col-sm-8">
             <div class="card">
 				<div class="content">
-						<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%" src="./q.php"> </iframe>
+						<iframe id="forecast_embed" type="text/html" frameborder="0" height="245" width="100%">XYZ</iframe>
 				</div>
 			</div>
         </div>

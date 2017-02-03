@@ -1,6 +1,6 @@
 <?php
 error_reporting(0);
-$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=100');
+$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=20');
 
 $feeds = array();
 

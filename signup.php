@@ -61,7 +61,7 @@
 		<br/>
 		Click on the button below to verify your account:
 		<br/><br/>	
-		<a href="http://localhost/connect/new.php?email='.$email.'&hash='.$hash.'"><button type="button" style="
+		<a href="http://localhost/Connect/verify_account.php?email='.$email.'&hash='.$hash.'"><button type="button" style="
 		margin:auto;
     padding: 10px 25px;
     text-align: center;
