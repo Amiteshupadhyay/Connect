@@ -334,44 +334,4 @@
 </div>
 
 <!--End of A2A modal-->
-<!--upload image modal-->
-<div id="uploadimg" class="modal" role="dialog">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-center">Change Profile Picture</h4>
-				</div>
-				<div class="modal-body">
-	  
-					<div class="row">
-						<form enctype="multipart/form-data" action="uploadimg.php" method="POST" id="myForm">
-							<div class="row">
-									<div class="col-md-4 col-offset-sm-2">
-									
-										<img src="Users/<?php echo $user ?>.jpg" class="img-thumbnail" id="dp" alt="Profile Pic">
-									
-									</div>
-									<div class=" col-md-2">
-										<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-								
-										<input name="userFile" type="file" onchange="readURL(this);" />
-									</div>
-							</div>
-					</div>
-					
-					</div>
-				<div class="modal-footer">
-					<btn class="btn btn-wd btn-success"  id="submit">Submit</btn>
-					</form>
-					
-					<button type="button" class="btn btn-wd btn-danger" data-dismiss="modal">Close</button>
-				</div>	
-					
-				</div>	
-				
-			</div>		
-		</div>
-	<!--end of upload modal-->
 <script src="assets/js/myModal.js" type="text/javascript"></script>

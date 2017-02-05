@@ -130,7 +130,7 @@
 							<li class="dropdown">
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 									<span class="profile-ava">
-										<img id="dp" alt="" src="assets/img/<?php echo $user; ?>.jpg">
+										<img id="dp" alt="" src="assets/img/<?php echo $user; ?>.jpg"/>
 									</span>
 									<span class="username"  ><?php echo $user; ?></span>
 									<b class="caret"></b>
