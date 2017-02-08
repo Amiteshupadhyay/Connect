@@ -1,7 +1,7 @@
 <div class="container-fluid">		
 	<div class="row">
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="card">
+			<div class="card" id="technology">
 				<div class="content">
 					<div class="row">
 						<div class="col-xs-3">
@@ -11,7 +11,7 @@
 						</div>
 						<div class="col-xs-9">
 							<div class="numbers">
-								Technology
+									<span>Technology</span>
 								<p>100+</p>
 							</div>
 						</div>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="card">
+			<div class="card"  id="sports">
 				<div class="content">
 					<div class="row">
 						<div class="col-xs-3">
@@ -37,7 +37,7 @@
 						<div class="col-xs-9">
 							<div class="numbers">
 								
-								Sports
+									<span>Sports</span>
 								<p>100+</p>
 							</div>
 						</div>
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="card">
+			<div class="card" id="world">
 				<div class="content">
 					<div class="row">
 						<div class="col-xs-3">
@@ -62,7 +62,7 @@
 						</div>
 						<div class="col-xs-9">
 							<div class="numbers">
-							  World
+								<span>World</span>
 								<p>10+</p>
 								
 							</div>
@@ -78,7 +78,7 @@
 			</div>
 		</div>
 		<div class="col-md-3 col-sm-6 col-xs-12">
-			<div class="card">
+			<div class="card" id="movies">
 				<div class="content">
 					<div class="row">
 						<div class="col-xs-3">
@@ -88,7 +88,7 @@
 						</div>
 						<div class="col-xs-9">
 							<div class="numbers">
-								Movies
+									<span>Movies</span>
 								<p>165+</p>
 							</div>
 						</div>
@@ -104,19 +104,69 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-12 col-xs-12 text-center">
-			<div id="rssOutput"></div>			
+		<div class="col-md-3 col-xs-3 text-center">
 		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-5 col-xs-5 text-center">
-		</div>
-		<div class="col-md-4 col-xs-4 text-center">
+		<div class="col-md-6 col-xs-6 text-center">
 			<div id="loading">
-			<img class="img-responsive" src="./assets/img/loading.gif" />
+			
 			</div>			
 		</div>
 		<div class="col-md-3 col-xs-3 text-center">			
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12 col-xs-12 text-center">
+			<div id="newsOutput"></div>			
+		</div>
+	</div>
 </div>
+
+
+<script>
+	$(document).ready(function(){
+		
+		$('#technology').click(function(){
+			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			fetch_data("fetchnews.php?key=1");
+		});
+		
+		$('#sports').click(function(){
+			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			fetch_data("fetchnews.php?key=2");
+		});
+		
+		$('#world').click(function(){
+			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			fetch_data("fetchnews.php?key=3");
+		});
+		
+		$('#movies').click(function(){
+			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			fetch_data("fetchnews.php?key=4");
+		});
+		
+});
+
+function fetch_data(fetch_option)
+{
+			if (window.XMLHttpRequest) {
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			} 
+			else {  // code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function() {
+				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+					$("#loading").html('');
+					$("#newsOutput").html(xmlhttp.responseText);
+				
+				}
+			}
+			$("#newsOutput").html(''); // Set blank before sending request
+			xmlhttp.open("GET",fetch_option,true);
+			xmlhttp.send();
+}
+	
+</script>
+

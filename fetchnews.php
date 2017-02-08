@@ -1,6 +1,21 @@
+
 <?php
+$count = $_GET['key'];
 error_reporting(0);
-$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=20');
+switch( $count )
+	{
+		case 1:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=20');
+		break;
+		case 2:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=s&output=rss&num=20');
+		break;
+		case 3:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=w&output=rss&num=20');
+		break;
+		case 4:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=e&output=rss&num=20');
+		break;
+		default:echo "Error fetching news";
+		
+	}
+//$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=20');
 
 $feeds = array();
 
