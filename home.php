@@ -238,7 +238,7 @@
 										break;			
 												
 							case("news"):fileName = "news.php";
-										rssFeed="fetchnews.php";
+										rssFeed="fetchnews.php?key=0";
 										$('.navbar-brand').text('News');		
 										break;
 							
