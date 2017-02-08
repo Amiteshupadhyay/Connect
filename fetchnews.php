@@ -12,11 +12,8 @@ switch( $count )
 		break;
 		case 4:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=e&output=rss&num=20');
 		break;
-		default:echo "Error fetching news";
-		
+		default:$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=h&output=rss&num=20');	
 	}
-//$news = simplexml_load_file('http://news.google.com/news?ned=in&topic=tc&output=rss&num=20');
-
 $feeds = array();
 
 $i = 0;

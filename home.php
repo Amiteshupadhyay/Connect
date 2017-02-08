@@ -228,31 +228,8 @@
 						var choice=$(this).find('span').attr('id');
 						switch(choice){
 							case("home"):fileName = "default.php";
+										rssFeed="q.php";
 										$('.navbar-brand').text('Home');
-										/*
-										* start of news fetching
-										*/
-											if (window.XMLHttpRequest) {
-											// code for IE7+, Firefox, Chrome, Opera, Safari
-												xmlhttp=new XMLHttpRequest();
-											} 
-											else {  // code for IE6, IE5
-												xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-											}
-											xmlhttp.onreadystatechange=function() {
-												if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-													$("#loading").html('');
-													$("#rssOutput").html(xmlhttp.responseText);
-												
-												}
-											}
-											$("#rssOutput").html(''); // Set blank before sending request
-											$("#loading").html('<img class="img-responsive" src="./assets/img/loading.gif" />'); // Set here the image before sending request
-											xmlhttp.open("GET","q.php",true);
-											xmlhttp.send();
-										/*
-										* end of news fetching
-										*/
 												
 										break;
 							case("profile"):fileName = "user.php";
@@ -261,7 +238,7 @@
 										break;			
 												
 							case("news"):fileName = "news.php";
-										rssFeed="fetchnews.php";
+										rssFeed="fetchnews.php?key=0";
 										$('.navbar-brand').text('News');		
 										break;
 							
@@ -300,6 +277,31 @@
 							$("#greeting").html(msg);
 							$("#greetingImage").attr('src',imageName);
 						});
+							
+						/*
+						* start of news fetching
+						*/
+							if (window.XMLHttpRequest) {
+							// code for IE7+, Firefox, Chrome, Opera, Safari
+								xmlhttp=new XMLHttpRequest();
+							} 
+							else {  // code for IE6, IE5
+								xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+							}
+							xmlhttp.onreadystatechange=function() {
+								if (xmlhttp.readyState==4 && xmlhttp.status==200) {
+									$("#loading").html('');
+									$("#rssOutput").html(xmlhttp.responseText);
+								
+								}
+							}
+							$("#rssOutput").html(''); // Set blank before sending request
+							$("#loading").html('<img class="img-responsive" src="./assets/img/loading.gif" />'); // Set here the image before sending request
+							xmlhttp.open("GET",rssFeed,true);
+							xmlhttp.send();
+						/*
+						* end of news fetching
+						*/
 						}
 					});
 				/*

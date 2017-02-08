@@ -116,7 +116,7 @@
 	</div>
 	<div class="row">
 		<div class="col-md-12 col-xs-12 text-center">
-			<div id="newsOutput"></div>			
+			<div id="rssOutput"></div>			
 		</div>
 	</div>
 </div>
@@ -159,11 +159,11 @@ function fetch_data(fetch_option)
 			xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 					$("#loading").html('');
-					$("#newsOutput").html(xmlhttp.responseText);
+					$("#rssOutput").html(xmlhttp.responseText);
 				
 				}
 			}
-			$("#newsOutput").html(''); // Set blank before sending request
+			$("#rssOutput").html(''); // Set blank before sending request
 			xmlhttp.open("GET",fetch_option,true);
 			xmlhttp.send();
 }
