@@ -130,7 +130,7 @@
 							<li class="dropdown">
 								<a data-toggle="dropdown" class="dropdown-toggle" href="#">
 									<span class="profile-ava">
-										<img id="dp" alt="" src="assets/img/<?php echo $user; ?>.jpg"/>
+										<img id="dp" alt="" src="Users/<?php echo $user; ?>.jpg"/>
 									</span>
 									<span class="username"  ><?php echo $user; ?></span>
 									<b class="caret"></b>
@@ -164,9 +164,52 @@
 		</div>
 	</div>	
 </body>
+<!--upload image modal-->
+<div id="uploadimg" class="modal fade" role="dialog" >
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+						<h4 class="modal-title text-center">Change Profile Picture</h4>
+				</div>
+				<div class="modal-body">
+	  
+					<div class="row">
+						<form enctype="multipart/form-data" action="uploadimg.php" method="POST" id="myForm">
+							<div class="row">
+									<div class="col-md-4 col-md-offset-4">
+									
+										<img src="Users/<?php echo $user ?>.jpg" class="img-thumbnail" id="dp" alt="Profile Pic">
+									
+									</div>
+									
+							</div>
+							<br>
+							<div class="modal-footer">
+								<div class="row">
+									<div class=" col-md-offset-4 col-md-4">
+										
+								
+											<input name="userFile" type="file"   id="userFile" />
+										</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+				
+					
+					
+					
+				</div>	
+				
+			</div>		
+		</div>
+	<!--end of upload modal-->
 <!--div to load all the modals-->
 <div id="myModals">
-
+			
 </div>
     
 	<!--   Core JS Files   -->
@@ -269,11 +312,11 @@
 							var msg = "Hello There";
 							var imageName = "./assets/img/hello.jpeg";
 
-							if (hrs >=  0) {msg = "Shh!!! Dreamers at work"; imageName = "./assets/img/late.jpeg";}// REALLY late  0-5
-							if (hrs >  4)  {msg = "Good morning"; imageName = "./assets/img/gm.jpeg";}      // After 5am 5-12
-							if (hrs > 12)  {msg = "Good afternoon"; imageName = "./assets/img/ga.jpeg";}   // After 12pm 12 -4
-							if (hrs > 18)  {msg = "Good evening"; imageName = "./assets/img/ge.jpeg";}     // After 5pm 4- 10
-							if (hrs > 22)  {msg = "Let's burn the midnight oil";  imageName = "./assets/img/gn.jpeg";}      // After 10pm 10- 0
+							if (hrs >=  0) {msg = "Shh!!! Dreamers at work"; imageName = "./assets/img/late.jpeg";}// REALLY late  0-4
+							if (hrs >  4)  {msg = "Good morning"; imageName = "./assets/img/gm.jpeg";}      // After 5am 4-12
+							if (hrs > 12)  {msg = "Good afternoon"; imageName = "./assets/img/ga.jpeg";}   // After 12pm 12 -5
+							if (hrs > 16)  {msg = "Good evening"; imageName = "./assets/img/ge.jpeg";}     // After 5pm 5- 9
+							if (hrs > 20)  {msg = "Good Night";  imageName = "./assets/img/gn.jpg";}      // After 9pm 9- 0
 							$("#greeting").html(msg);
 							$("#greetingImage").attr('src',imageName);
 						});

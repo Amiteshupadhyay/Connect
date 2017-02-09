@@ -110,46 +110,7 @@ I'll probably won't.</textarea>
 </div>
 </div>
         
-<!--upload image modal-->
-<div id="uploadimg" class="modal fade" role="dialog" data-backdrop="false">
-		<div class="modal-dialog">
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title text-center">Change Profile Picture</h4>
-				</div>
-				<div class="modal-body">
-	  
-					<div class="row">
-						<form enctype="multipart/form-data" action="uploadimg.php" method="POST" id="myForm">
-							<div class="row">
-									<div class="col-md-4 col-offset-sm-2">
-									
-										<img src="Users/<?php echo $user ?>.jpg" class="img-thumbnail" id="dp" alt="Profile Pic">
-									
-									</div>
-									<div class=" col-md-2">
-										<input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-								
-										<input name="userFile" type="file" onchange="readURL(this);" />
-									</div>
-							</div>
-					</div>
-					
-					</div>
-				<div class="modal-footer">
-					<button class="btn btn-wd btn-success"  id="submit">Submit</button>
-					</form>
-					
-					<button type="button" class="btn btn-wd btn-danger" data-dismiss="modal">Close</button>
-				</div>	
-					
-				</div>	
-				
-			</div>		
-		</div>
-	<!--end of upload modal-->
+
 	<script>
 		$("#btn").click(function()
 				{
@@ -173,28 +134,44 @@ I'll probably won't.</textarea>
 						
 					});
 				});
-	
-				$("#submit").click(function()
-				{
-							var ext = $('#userFile').val().split('.').pop().toLowerCase();
+			$(document).ready(function (e) {	
+				$('#myForm').on('submit',(function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+
+        $.ajax({
+            type:'POST',
+            url: $(this).attr('action'),
+            data:formData,
+            cache:false,
+            contentType: false,
+            processData: false,
+            success:function(data){
+                $.notify({
+										icon: 'ti-check-box',
+										message: "Image updated <b>Successfully<b>!"
+
+									},{
+									type: 'success',
+									timer: 4000
+									});
+            },
+            error: function(data){
+                console.log("error");
+                console.log(data);
+            }
+        });
+    }));
+
+    $("#userFile").on("change", function() {
+		var ext = $('#userFile').val().split('.').pop().toLowerCase();
 								if($.inArray(ext, ['png','jpg','jpeg']) == -1) {
 									alert('invalid extension!');
 }								else
-								$('form #myForm').submit();
-				});
+								$("#myForm").submit();
+    });
+});
+
+			
 				
-				function readURL(input) {
-					if (input.files && input.files[0]) {
-						var reader = new FileReader();
-
-						reader.onload = function (e) {
-						$('#dp')
-                        .attr('src', e.target.result)
-                        .width(150)
-                        .height(150);
-					};
-
-                reader.readAsDataURL(input.files[0]);
-				}
-        }
 	</script>
