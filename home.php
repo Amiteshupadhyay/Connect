@@ -182,6 +182,9 @@
 
     <!--  Notifications Plugin    -->
     <script src="assets/js/bootstrap-notify.js"></script>
+	
+	<!--  Loader Plugin    -->
+    <script src="assets/js/loader.js"></script>
 
     <!--  Google Maps Plugin    -->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
@@ -239,7 +242,8 @@
 												
 							case("news"):fileName = "news.php";
 										rssFeed="fetchnews.php?key=0";
-										$('.navbar-brand').text('News');		
+										$('.navbar-brand').text('News');
+										myLoader.showPleaseWait();
 										break;
 							
 							case("debate"):fileName = "debate.php";
@@ -269,11 +273,11 @@
 							var msg = "Hello There";
 							var imageName = "./assets/img/hello.jpeg";
 
-							if (hrs >=  0) {msg = "Shh!!! Dreamers at work"; imageName = "./assets/img/late.jpeg";}// REALLY late  0-5
-							if (hrs >  4)  {msg = "Good morning"; imageName = "./assets/img/gm.jpeg";}      // After 5am 5-12
-							if (hrs > 12)  {msg = "Good afternoon"; imageName = "./assets/img/ga.jpeg";}   // After 12pm 12 -4
-							if (hrs > 18)  {msg = "Good evening"; imageName = "./assets/img/ge.jpeg";}     // After 5pm 4- 10
-							if (hrs > 22)  {msg = "Let's burn the midnight oil";  imageName = "./assets/img/gn.jpeg";}      // After 10pm 10- 0
+							if (hrs >=  0) {msg = "Shh!!! Dreamers at work"; imageName = "./assets/img/late.jpeg";}//   0-4
+							if (hrs >  4)  {msg = "Good morning"; imageName = "./assets/img/gm.jpeg";}      //  5-12
+							if (hrs > 11)  {msg = "Good afternoon"; imageName = "./assets/img/ga.jpeg";}   //  12 -4
+							if (hrs > 16)  {msg = "Good evening"; imageName = "./assets/img/ge.jpeg";}     // 5- 8
+							if (hrs > 20)  {msg = "Let's burn the midnight oil";  imageName = "./assets/img/gn.jpeg";}      //9- 0
 							$("#greeting").html(msg);
 							$("#greetingImage").attr('src',imageName);
 						});
@@ -290,13 +294,12 @@
 							}
 							xmlhttp.onreadystatechange=function() {
 								if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-									$("#loading").html('');
+									myLoader.hidePleaseWait();
 									$("#rssOutput").html(xmlhttp.responseText);
 								
 								}
 							}
 							$("#rssOutput").html(''); // Set blank before sending request
-							$("#loading").html('<img class="img-responsive" src="./assets/img/loading.gif" />'); // Set here the image before sending request
 							xmlhttp.open("GET",rssFeed,true);
 							xmlhttp.send();
 						/*
