@@ -104,17 +104,6 @@
 		</div>
 	</div>
 	<div class="row">
-		<div class="col-md-3 col-xs-3 text-center">
-		</div>
-		<div class="col-md-6 col-xs-6 text-center">
-			<div id="loading">
-			
-			</div>			
-		</div>
-		<div class="col-md-3 col-xs-3 text-center">			
-		</div>
-	</div>
-	<div class="row">
 		<div class="col-md-12 col-xs-12 text-center">
 			<div id="rssOutput"></div>			
 		</div>
@@ -126,22 +115,22 @@
 	$(document).ready(function(){
 		
 		$('#technology').click(function(){
-			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			myLoader.showPleaseWait();
 			fetch_data("fetchnews.php?key=1");
 		});
 		
 		$('#sports').click(function(){
-			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			myLoader.showPleaseWait();
 			fetch_data("fetchnews.php?key=2");
 		});
 		
 		$('#world').click(function(){
-			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			myLoader.showPleaseWait();
 			fetch_data("fetchnews.php?key=3");
 		});
 		
 		$('#movies').click(function(){
-			$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
+			myLoader.showPleaseWait();
 			fetch_data("fetchnews.php?key=4");
 		});
 		
@@ -158,9 +147,8 @@ function fetch_data(fetch_option)
 			}
 			xmlhttp.onreadystatechange=function() {
 				if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-					$("#loading").html('');
+					myLoader.hidePleaseWait();
 					$("#rssOutput").html(xmlhttp.responseText);
-				
 				}
 			}
 			$("#rssOutput").html(''); // Set blank before sending request
