@@ -296,7 +296,7 @@
 								}
 							}
 							$("#rssOutput").html(''); // Set blank before sending request
-							$("#loading").html('<img class="img-responsive" src="./assets/img/loading.gif" />'); // Set here the image before sending request
+							$("#loading").html('<object type="image/svg+xml" data="./assets/img/loader.svg"> Your browser does not support SVG</object>'); // Set here the image before sending request
 							xmlhttp.open("GET",rssFeed,true);
 							xmlhttp.send();
 						/*
